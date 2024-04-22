@@ -2,11 +2,9 @@ require 'open-uri'
 
 class GamesController < ApplicationController
   def new
-    i = 0
     @letters = []
-    while i < 10
+    10.times do
       @letters << ('A'..'Z').to_a.sample(1)
-      i += 1
     end
     @letters
   end
