@@ -1,0 +1,17 @@
+<h1>The Longest Word Game 🎮</h1>
+
+<div class="container d-flex mt-4">
+<% @letters.flatten.each do |letter| %>
+  <span class="bg-primary text-light text-center p-3 mx-1" style="width: 4rem;"><%= letter %></span>
+<%end%>
+</div>
+
+<div class="container mt-4">
+<form action="/score" method="post" data-turbo="false">
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+<label for="answer">What is the longest word you can find?</label>
+ <input type="text" name="answer" placeholder="Type your answer">
+ <input type="text" name="letters" value="<%=@letters%>" style="display: none;">
+  <input type="submit" value="Play">
+</form>
+</div>
