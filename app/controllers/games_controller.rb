@@ -18,7 +18,7 @@ class GamesController < ApplicationController
     @session_result = session[:result]
     @score = if html_doc['found'] == false
                "Sorry but #{params[:answer].upcase} does not seem to be a valid English word"
-             elsif @letters.flatten.any? { |letter| params[:answer].upcase.include? letter }
+             elsif params[:answer].split('').all? { |letter| @letters.split('').include? letter }
                "Congratulations! #{params[:answer].upcase} is a valid English word.
                Your score is #{(html_doc['length']).to_i}"
              else
